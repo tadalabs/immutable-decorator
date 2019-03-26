@@ -1,0 +1,30 @@
+{
+  "name": "immutable-decorator",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "rimraf *.lock *.log && rimraf dist && mkdir dist",
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run clean && npm run build && npm run test",
+    "test": "cd dist && node tester.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "rimraf": "^2.6.3"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ]
+  }
+}
